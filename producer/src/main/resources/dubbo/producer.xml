@@ -17,7 +17,8 @@
     <dubbo:protocol name="dubbo" port="${dubbo.port}" />
 
     <!-- 声明需要暴露的服务接口 -->
-    <dubbo:service interface="cn.wzy.demo.service.DemoService" ref="demoServiceImpl" />
+    <dubbo:service interface="cn.wzy.demo.service.DemoService" ref="demoServiceImpl"
+                   timeout="${dubbo.service.timeout}" retries="${dubbo.service.retries}"/>
 
     <bean id="demoServiceImpl" class="cn.wzy.demo.service.impl.DemoServiceImpl" />
 </beans>

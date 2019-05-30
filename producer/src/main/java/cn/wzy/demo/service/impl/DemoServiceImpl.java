@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 public class DemoServiceImpl implements DemoService {
   @Override
   public String test(String name) {
+    System.out.println("收到请求，name：" + name);
     return "hello " + name;
   }
 }
