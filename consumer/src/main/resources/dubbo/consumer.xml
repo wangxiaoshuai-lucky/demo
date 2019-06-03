@@ -14,5 +14,6 @@
 
     <!-- 生成远程服务代理，可以和本地bean一样使用demoService -->
     <dubbo:reference id="demoService" interface="cn.wzy.demo.service.DemoService"
-                     timeout="${dubbo.service.timeout}" retries="${dubbo.service.retries}"/>
+                     timeout="${dubbo.service.timeout}" retries="${dubbo.service.retries}"
+                     filter="tagFilter"/>
 </beans>

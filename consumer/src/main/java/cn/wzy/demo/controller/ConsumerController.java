@@ -18,6 +18,7 @@ public class ConsumerController {
   @GetMapping("/test.do")
   public String test(User user){
     String res =  service.test(user);
+    System.out.println(service.test(user));
     return res;
   }
 }
