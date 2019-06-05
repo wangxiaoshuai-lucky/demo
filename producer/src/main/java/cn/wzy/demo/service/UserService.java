@@ -13,5 +13,5 @@ import java.util.List;
  **/
 public interface UserService {
 
-    String method1(User user, List<User> users, Date date, String name, Integer time);
+    String method1(User user, List<User> users, Date date, String name, Long time);
 }

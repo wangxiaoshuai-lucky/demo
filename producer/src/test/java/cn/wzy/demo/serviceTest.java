@@ -35,7 +35,7 @@ public class serviceTest {
                 null,
                 new Date(),
                 "username",
-                12));
+                System.currentTimeMillis()));
     }
 
     @Test
@@ -48,7 +48,7 @@ public class serviceTest {
                 Arrays.asList(null, null, null),
                 new Date(),
                 "username",
-                12));
+                System.currentTimeMillis()));
     }
 
     @Test
@@ -61,7 +61,7 @@ public class serviceTest {
                 Arrays.asList(null, null, null),
                 new Date(),
                 "username",
-                12));
+                System.currentTimeMillis()));
     }
 
     @Test
@@ -69,11 +69,19 @@ public class serviceTest {
         User user = new User();
         user.setPassword("pwd222");
         user.setUsername("wzy");
-        System.out.println(userServiceImpl.method1(
+        userServiceImpl.method1(
                 user,
                 Arrays.asList(null, null, null),
                 new Date(),
                 "username",
-                12));
+                System.currentTimeMillis());
+        for (int i = 0; i < 20; i++) {
+            System.out.println(userServiceImpl.method1(
+                    user,
+                    Arrays.asList(null, null, null),
+                    new Date(),
+                    "username",
+                    System.currentTimeMillis()));
+        }
     }
 }
