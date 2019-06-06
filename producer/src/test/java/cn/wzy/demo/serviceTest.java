@@ -4,10 +4,10 @@ import cn.wzy.demo.model.User;
 import cn.wzy.demo.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.Date;
 
@@ -21,7 +21,7 @@ import java.util.Date;
 @RunWith(SpringRunner.class)
 public class serviceTest {
 
-    @Resource
+    @Autowired
     private UserService userServiceImpl;
 
 
@@ -65,17 +65,12 @@ public class serviceTest {
     }
 
     @Test
-    public void test4() {
+    public void test4() throws InterruptedException {
         User user = new User();
         user.setPassword("pwd222");
         user.setUsername("wzy");
-        userServiceImpl.method1(
-                user,
-                Arrays.asList(null, null, null),
-                new Date(),
-                "username",
-                System.currentTimeMillis());
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 1001; i++) {
+//            Thread.sleep(500);
             System.out.println(userServiceImpl.method1(
                     user,
                     Arrays.asList(null, null, null),
