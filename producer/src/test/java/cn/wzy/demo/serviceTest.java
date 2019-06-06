@@ -2,6 +2,7 @@ package cn.wzy.demo;
 
 import cn.wzy.demo.model.User;
 import cn.wzy.demo.service.UserService;
+import com.seewo.utils.Check.VerifyAspect;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
