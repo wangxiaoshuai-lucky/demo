@@ -2,7 +2,6 @@ package cn.wzy.demo;
 
 import cn.wzy.demo.model.User;
 import cn.wzy.demo.service.UserService;
-import com.seewo.utils.Check.VerifyAspect;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Arrays;
 import java.util.Date;
+import java.util.regex.Pattern;
 
 /**
  * @ClassName serviceTest
@@ -26,6 +26,10 @@ public class serviceTest {
     private UserService userServiceImpl;
 
 
+    public static void main(String[] args) {
+        System.out.println(Pattern.matches("[a-zA-Z0-9]{5,20}$", "***999"));
+    }
+
     @Test
     public void test1() {
         User user = new User();
@@ -33,51 +37,12 @@ public class serviceTest {
         user.setUsername("wzy22");
         System.out.println(userServiceImpl.method1(
                 user,
-                null,
-                new Date(),
-                "username",
-                System.currentTimeMillis()));
-    }
-
-    @Test
-    public void test2() {
-        User user = new User();
-        user.setPassword("pwd");
-        user.setUsername("wzy");
-        System.out.println(userServiceImpl.method1(
-                user,
                 Arrays.asList(null, null, null),
                 new Date(),
-                "username",
-                System.currentTimeMillis()));
+                "***999",
+                System.currentTimeMillis(),
+                12,
+                166.3));
     }
 
-    @Test
-    public void test3() {
-        User user = new User();
-        user.setPassword("pwd222");
-        user.setUsername("");
-        System.out.println(userServiceImpl.method1(
-                user,
-                Arrays.asList(null, null, null),
-                new Date(),
-                "username",
-                System.currentTimeMillis()));
-    }
-
-    @Test
-    public void test4() throws InterruptedException {
-        User user = new User();
-        user.setPassword("pwd222");
-        user.setUsername("wzy");
-        for (int i = 0; i < 1001; i++) {
-//            Thread.sleep(500);
-            System.out.println(userServiceImpl.method1(
-                    user,
-                    Arrays.asList(null, null, null),
-                    new Date(),
-                    "username",
-                    System.currentTimeMillis()));
-        }
-    }
 }
